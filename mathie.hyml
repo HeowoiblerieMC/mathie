@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Math Rush</title>
+</head>
+<body>
+
+<h1>Math Rush</h1>
+
+<p id="question"></p>
+
+<input id="answer">
+
+<button onclick="check()">Submit</button>
+
+<p id="score">Score: 0</p>
+
+<script>
+let a;
+let b;
+let score = 0;
+
+function nextQuestion() {
+    a = Math.floor(Math.random() * 10);
+    b = Math.floor(Math.random() * 10);
+
+    document.getElementById("question").textContent =
+        a + " + " + b + " = ?";
+}
+
+function check() {
+    let user =
+        Number(document.getElementById("answer").value);
+
+    if (user === a + b) {
+        score++;
+        document.getElementById("score").textContent =
+            "Score: " + score;
+    }
+
+    document.getElementById("answer").value = "";
+    nextQuestion();
+}
+
+nextQuestion();
+</script>
+
+</body>
+</html>
